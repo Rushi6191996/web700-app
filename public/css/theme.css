@@ -1,0 +1,226 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap'); /* Cursive Font */
+
+/* Define Theme Variables */
+:root {
+    --font-primary: 'Roboto', sans-serif;
+    --font-secondary: 'Dancing Script', cursive; /* Cursive font for headers and brand */
+    
+    /* Light Theme Colors */
+    --color-bg-light: #f5f5f5;
+    --color-text-light: #333;
+    --color-primary-light: #05445E;
+    --color-secondary-light: #75E6DA;
+    --color-accent-light: #81C784;
+    --color-link-light: #4a04ec;
+    --color-link-hover-light: #ff071c;
+    --color-button-light: linear-gradient(45deg, #4CAF50, #81C784);
+    --color-button-hover-light: linear-gradient(45deg, #388E3C, #66BB6A);
+
+    /* Dark Theme Colors */
+    --color-bg-dark: #000000; /* Black background */
+    --color-text-dark: #f0f0f0; /* Light text for contrast on black */
+    --color-primary-dark: #bb86fc; /* Lavender */
+    --color-secondary-dark: #03dac6; /* Light teal */
+    --color-accent-dark: #ff4081; /* Pink accent */
+    --color-link-dark: #80cbc4; /* Light cyan link color */
+    --color-link-hover-dark: #ff1744; /* Bright red on hover */
+    --color-button-dark: linear-gradient(45deg, #1de9b6, #00bfa5); /* Teal gradient for buttons */
+    --color-button-hover-dark: linear-gradient(45deg, #00bfa5, #00897b);
+}
+
+/* Base Styles */
+body, html {
+    font-family: var(--font-primary);
+    background-color: var(--color-bg-light);
+    color: var(--color-text-light);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    height: 100%;
+    overflow: auto;
+}
+
+/* Light Theme */
+.light-theme body, .light-theme html {
+    background-color: var(--color-bg-light);
+    color: var(--color-text-light);
+}
+
+/* Dark Theme */
+.dark-theme body, .dark-theme html {
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-dark);
+}
+
+/* Navigation Bar */
+.bg-light {
+    background-color: var(--color-primary-light) !important;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.light-theme .bg-light {
+    background-color: var(--color-primary-light) !important;
+}
+
+.dark-theme .bg-light {
+    background-color: var(--color-primary-dark) !important;
+}
+
+/* Navigation Brand */
+.navbar-brand {
+    font-family: var(--font-secondary); /* Cursive font */
+    color: var(--color-secondary-light) !important;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    font-size: 1.8rem;
+    transition: color 0.3s ease;
+}
+
+.light-theme .navbar-brand {
+    color: var(--color-secondary-light) !important;
+}
+
+.dark-theme .navbar-brand {
+    color: var(--color-secondary-dark) !important;
+}
+
+/* Navigation Links */
+.nav-link {
+    color: var(--color-link-light) !important;
+    transition: color 0.3s ease;
+}
+
+.light-theme .nav-link {
+    color: var(--color-link-light) !important;
+}
+
+.dark-theme .nav-link {
+    color: var(--color-link-dark) !important;
+}
+
+.nav-link:hover {
+    color: var(--color-link-hover-light) !important;
+}
+
+.light-theme .nav-link:hover {
+    color: var(--color-link-hover-light) !important;
+}
+
+.dark-theme .nav-link:hover {
+    color: var(--color-link-hover-dark) !important;
+}
+
+/* Specific Navigation Links with Green Color */
+.nav-link[href="/"],           /* Home link */
+.nav-link[href="/about"],       /* About link */
+.nav-link[href="/htmlDemo"],    /* HTML Demo link */
+.nav-link[href="/students/add"], /* Add Student link */
+.nav-link[href="/students"],    /* Students link */
+.nav-link[href="/tas"],         /* Teaching Assistants link */
+.nav-link[href="/courses"]      /* Courses link */
+{
+    color: #4CAF50 !important;  /* Green color */
+}
+
+/* Optional: Hover effect for these specific links */
+.nav-link[href="/"]:hover,
+.nav-link[href="/about"]:hover,
+.nav-link[href="/htmlDemo"]:hover,
+.nav-link[href="/students/add"]:hover,
+.nav-link[href="/students"]:hover,
+.nav-link[href="/tas"]:hover,
+.nav-link[href="/courses"]:hover {
+    color: #388E3C !important; /* Darker green on hover */
+}
+
+/* Primary Button Styling */
+.btn-primary {
+    background: var(--color-button-light);
+    color: white;
+    border: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.light-theme .btn-primary {
+    background: var(--color-button-light);
+}
+
+.dark-theme .btn-primary {
+    background: var(--color-button-dark);
+}
+
+.btn-primary:hover {
+    background: var(--color-button-hover-light);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.light-theme .btn-primary:hover {
+    background: var(--color-button-hover-light);
+}
+
+.dark-theme .btn-primary:hover {
+    background: var(--color-button-hover-dark);
+}
+
+/* Table Styling */
+table tr:nth-child(odd) td {
+    background-color: var(--color-accent-light);
+}
+
+.light-theme table tr:nth-child(odd) td {
+    background-color: var(--color-accent-light);
+}
+
+.dark-theme table tr:nth-child(odd) td {
+    background-color: var(--color-accent-dark);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-secondary); /* Cursive font for headings */
+    color: var(--color-text-light);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.light-theme h1, .light-theme h2, .light-theme h3, .light-theme h4, .light-theme h5, .light-theme h6 {
+    color: var(--color-text-light);
+}
+
+.dark-theme h1, .dark-theme h2, .dark-theme h3, .dark-theme h4, .dark-theme h5, .dark-theme h6 {
+    color: var(--color-text-dark);
+}
+
+/* Fieldset Legends */
+legend {
+    padding: 8px 16px;
+    font-size: 1.2em;
+    font-family: var(--font-secondary); /* Cursive font for legend */
+    color: var(--color-text-light);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.light-theme legend {
+    color: var(--color-text-light);
+}
+
+.dark-theme legend {
+    color: var(--color-text-dark);
+}
+
+/* Container Styling */
+.container {
+    background-color: var(--color-bg-light);
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.light-theme .container {
+    background-color: var(--color-bg-light);
+}
+
+.dark-theme .container {
+    background-color: #1f1f1f;
+}
