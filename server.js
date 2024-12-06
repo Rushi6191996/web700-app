@@ -58,6 +58,34 @@ app.get("/about", (req, res) => {
 app.get("/htmlDemo", (req, res) => {
     res.render('htmlDemo',{title:'HtmlDemo'});
 });
+//Added here 
+// Add a course (GET)
+app.get("/courses/add", (req, res) => {
+    res.render("addCourse", { layout: "layouts/main" }); // Ensure layout is passed
+});
+
+
+// Add a course (POST)
+app.post("/courses/add", (req, res) => {
+    collegeData.addCourse(req.body)
+        .then(() => res.redirect("/courses"))
+        .catch(() => res.status(500).send("Unable to add course"));
+});
+
+// Update a course
+app.post("/course/update", (req, res) => {
+    collegeData.updateCourse(req.body)
+        .then(() => res.redirect("/courses"))
+        .catch(() => res.status(500).send("Unable to update course"));
+});
+
+// Delete a course
+app.get("/course/delete/:id", (req, res) => {
+    collegeData.deleteCourseById(req.params.id)
+        .then(() => res.redirect("/courses"))
+        .catch(() => res.status(500).send("Unable to remove course"));
+});
+
 
 // Route for adding a student (GET)
 app.get("/students/add", (req, res) => {
@@ -78,20 +106,15 @@ app.post('/students/add', (req, res) => {
 });
 
 // Route to get students
-app.get("/students", async (req, res) => {
-    const course = req.query.course;
-    try {
-        let students;
-        if (course) {
-            students = await collegeData.getStudentsByCourse(course);
-        } else {
-            students = await collegeData.getAllStudents();
-        }
-        res.render('students',{students});
-    } catch (err) {
-        res.render('students',{ message: "no results" });
-    }
+app.get("/students", (req, res) => {
+    collegeData.getAllStudents()
+        .then((data) => {
+            if (data.length > 0) res.render("students", { students: data });
+            else res.render("students", { message: "no results" });
+        })
+        .catch(() => res.render("students", { message: "no results" }));
 });
+
 
 // Route to get TAs
 app.get("/tas", async (req, res) => {

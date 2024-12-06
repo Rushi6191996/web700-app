@@ -1,0 +1,48 @@
+<%- include("layouts/main") %>
+
+<div class="container">
+    <div class="row">
+        <main class="col-md-12">
+            <br>
+            <h2>Add New Course</h2>
+            <hr />
+
+            <!-- Add Course Form -->
+            <form method="POST" action="/courses/add">
+                <fieldset>
+                    <legend>Course Information</legend>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="courseCode">Course Code:</label>
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="courseCode" 
+                                    name="courseCode" 
+                                    placeholder="Enter course code" 
+                                    required 
+                                />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="courseDescription">Course Description:</label>
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="courseDescription" 
+                                    name="courseDescription" 
+                                    placeholder="Enter course description" 
+                                    required 
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <hr />
+                <input type="submit" class="btn btn-primary float-right" value="Add Course" />
+            </form>
+        </main>
+    </div>
+</div>

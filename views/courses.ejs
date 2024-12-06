@@ -1,0 +1,51 @@
+<div class="row">
+    <div class="col-md-12">
+        <br>
+        <h2>Courses</h2>
+        <hr />
+
+        <!-- Add New Course Button -->
+        <a href="/courses/add" class="btn btn-success float-right mb-3">Add New Course</a>
+
+        <!-- Error Message Handling -->
+        {{#if message}}
+        <div class="alert alert-warning text-center">
+            <strong>{{message}}</strong>
+        </div>
+        {{/if}}
+
+        <!-- Courses Table -->
+        {{#if courses}}
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Course Code</th>
+                        <th>Course Description</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each courses}}
+                    <tr>
+                        <td>
+                            <a href="/course/{{courseId}}">{{courseCode}}</a>
+                        </td>
+                        <td>
+                            <a href="/students?course={{courseId}}">{{courseDescription}}</a>
+                        </td>
+                        <td>
+                            <a href="/course/delete/{{courseId}}" class="btn btn-danger btn-sm">Remove</a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+        {{else}}
+        <div class="alert alert-info text-center">
+            <strong>No courses available.</strong>
+        </div>
+        {{/if}}
+    </div>
+</div>
